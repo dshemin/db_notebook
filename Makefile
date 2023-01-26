@@ -12,5 +12,8 @@ $(VENV_BIN)/activate:
 
 run: deps
 	docker compose up -d
-	jupyter notebook
+	jupyter-lab --config ./config/jupyter_lab_config.py
 	docker compose down
+
+setup: deps
+	jupyter labextension install jupyterlab_templates
